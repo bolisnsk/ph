@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <conio.h>
+#include <Windows.h>
+
+int scroe = 0;
+int stage = 1;
+
+void Screen(void);
+
+int main(){
+	
+	Screen();
+	return 0;
+}
+
+void gotoxy(int x, int y) {
+	COORD Pos;
+	Pos.X = x;
+	Pos.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
+
+}
+
+void Screen(void){
+
+	int i;
+	int y = 1;
+
+	//구분선
+	for (i = 0; i < 81; i++) {
+		gotoxy(i, 1);
+		printf("─");
+	}
+	
+	//단계
+	gotoxy(0, 0); printf("Stage : %d", stage);
+	
+	//점수
+	gotoxy(65, 0); printf("Scroe : %d", scroe);
+	
+	//입력칸
+	gotoxy(28, 21); printf("┌────────────┐");
+	gotoxy(28, 22); printf("│            │");
+	gotoxy(28, 23); printf("└────────────┘");
+
+	
+	
+
+}
